@@ -183,19 +183,23 @@ The real benefit here is the syntactic sugar over the existing Android
 API’s that make your code more readable and consistent. Regardless if
 you’re observing a click event, a text change event, or even a dismissal
 of a Snackbar, RxBinding provides a consistent implementation that you
-can use to react accordingly.
+can use to react accordingly.  
+真正的好处是语法糖，让你在已有Android API的基础上使代码更易读和统一。不管你是观察一个点击事件，文本的变化，甚至是Snackbar的消失，RxBinding都提供了统一的实现方式。
 
 ### Transforming with Operators
+### 通过操作符来变换
 
 Since `RxBinding` is applying RxJava paradigms to
 existing Android Views and Widgets, you can use RxJava operators to
 perform transformations on the stream of data that is emitted in real
-time. Let’s take a look at an example:
+time. Let’s take a look at an example:  
+既然`RxBinding`为Android的视图和插件提供了RxJava的能力，你可以使用操作符来对数据流进行变化。让我们看个例子：
 
 Assume you have an EditText field that you want to watch for changes (as
 the user types, etc). When the text changes, you want to take the text
 string, reverse it, and output it to the screen in a different TextView.
-Here’s how you could do that:
+Here’s how you could do that:  
+假设你有一个EditText需要关注他的变化(用户输入时等等)。当文本变化时，你希望得到输入内容，倒置，然后输出到另一个TextView。你可以这样：
 
 ```
 final TextView nameLabel = (TextView) findViewById(R.id.name_label);
@@ -224,13 +228,15 @@ The `map()` operator returns a reversed string and
 then the subscription sets the `nameLabel` to that
 text value. As you can imagine, you can do a number of things with built
 in RxJava operators and any custom operators that you’ve built thus far
-in your application.
+in your application.  
+在上面的例子中，EditText控件的文本变化事件被RxTextView.textChanges()观察，然后将结果通过`map()`操作符倒置。你可以想象，使用RxJava内置的操作符以及你自定义的操作符你可以做什么。
 
 I’d like to mention again the power of the syntactic sugar over the
 Android views and widgets API. By conforming to the same RxJava
 Observable paradigm, you can chain operations together that would
 normally not be able to. This has great power as you start to compose
-your application in a reactive nature.
+your application in a reactive nature.  
+我想要重申一遍这为Android的视图和插件API带来的语法糖。通过RxJava的，你可以链式调用。
 
 ### RxBinding Offers More
 
